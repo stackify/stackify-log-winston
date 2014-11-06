@@ -1,0 +1,18 @@
+{
+  "name": "winston-stackify",
+  "version": "1.0.0",
+  "description": "Winston custom transport for sending logs to Stackify API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "winston",
+    "stackify"
+  ],
+  "author": "Stackify",
+  "license": "ISC",
+  "dependencies": {
+    "winston": "^0.8.3"
+  }
+}
