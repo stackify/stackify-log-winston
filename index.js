@@ -7,6 +7,11 @@ var events   = require('events'),
 // for persisting log messages and metadata to a memory array of messages and sending them to Stackify API.
 //
 module.exports = Stackify = winston.transports.Stackify = function (options) {
+    
+    if (!options.storage) {
+        throw new TypeError('You have to pass Stackify logger instance');
+    }
+
     winston.Transport.call(this, options);
     options = options || {};
     this.level = options.level || 'silly';
@@ -32,17 +37,14 @@ Stackify.prototype.name = 'stackify';
 // Core logging method exposed to Winston. Metadata is optional.
 //
 Stackify.prototype.log = function (level, msg, meta, callback) {
+    var self = this;
+
     if (this.silent) {
         return callback(null, true);
     }
 
-    var self = this;
     this.push(level, msg, meta);
 
     self.emit('logged');
     callback(null, true);
-};
-
-Stackify.prototype.clearLogs = function () {
-    stackify.storage = [];
 };
