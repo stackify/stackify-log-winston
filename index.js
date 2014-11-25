@@ -7,7 +7,7 @@ var events   = require('events'),
 // for persisting log messages and metadata to a memory array of messages and sending them to Stackify API.
 //
 module.exports = Stackify = winston.transports.Stackify = function (options) {
-    
+
     if (!options.storage) {
         throw new TypeError('You have to pass Stackify logger instance');
     }

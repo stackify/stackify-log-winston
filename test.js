@@ -4,29 +4,28 @@ var winston   = require('winston');
 var util      = require('util');
 var test      = require('./test');
 var stackify  = require('../stackify-log-nodejs/index');
+/*var logger    = require('./logger');*/
 
 stackify.start({apiKey: '0Zw8Fj4Hr3Aa1Sf2Gw4Cb3Gk7Fp6Zn6Sc0Gw2Cr', env: 'dev'});
 
 require('./index');
 require('./test2');
-
-
 winston.add(winston.transports.Stackify, {level: 'silly', storage: stackify});
 
-winston.log('verbose', 'wert');
-winston.info('info');
-winston.error('debug');
-winston.log('debug', 'sdf');
-winston.log('verbose', 'were43rt');
+/*logger.log('verbose', 'wert');
+logger.info('info');
+logger.error('debug');
+logger.log('debug', 'sdf');
+logger.log('verbose', 'were43rt');
 
 setInterval(function () {
-    winston.info('test');
+    logger.info('test');
 }, 4000);
 setInterval(function () {
-    stackify.info('test');
+    logger.info('test2');
 }, 5000);
-
-
+setInterval(function() {ert}, 25000);
+*/
 http.createServer(function (req, res) {
     var u = url.parse(req.url, true).query;
     var body = '';
