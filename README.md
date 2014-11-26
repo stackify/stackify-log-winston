@@ -22,8 +22,8 @@ $ npm install winston-stackify
   var stackify = require('stackify-logger');
   stackify.start({apiKey: '***', env: 'dev'});
   //
-  // Requiring `winston-stackify` will expose 
-  // `winston.transports.Stackify`
+  // Requiring 'winston-stackify' will expose 
+  // 'winston.transports.Stackify'
   //
 
   require('winston-stackify').Stackify;
