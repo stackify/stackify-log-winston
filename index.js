@@ -16,6 +16,7 @@ module.exports = Stackify = winston.transports.Stackify = function (options) {
     options = options || {};
     this.level = options.level || 'silly';
     this.push = options.storage.push;
+    this.silent = options.silent || false;
 };
 
 //

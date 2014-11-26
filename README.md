@@ -1,5 +1,7 @@
 ##Stackify Log API for Winston
 
+Winston transport for Stackify
+
 Errors and Logs Overview:
 
 http://docs.stackify.com/m/7787/l/189767
@@ -8,13 +10,38 @@ Sign Up for a Trial:
 
 http://www.stackify.com/sign-up/
 
+## Installation
+```bash
+$ npm install winston-stackify
+```
+
 ## Usage
 
+``` js
+  var winston = require('winston');
+  var stackify = require('stackify-logger');
+  stackify.start({apiKey: '***', env: 'dev'});
 
-## Installation
+  require('winston-stackify').Stackify;
+  
+  winston.add(winston.transports.Stackify, {storage : stackify});
+```
+In order to use this transport Stackify Logger package must be installed
 
+For more details go to [Stackify-Logger](https://github.com/stackify/stackify-log-nodejs)
 
-Note: *We are dependent on the Guava project from Google. We require version 15.0 (or beyond) for the background thread that sends data back to Stackify.*
+Stackify transport takes the following options. 'storage' is required:
+* __storage:__ Stackify logging library instance.
+* __level:__ Level of messages that this transport should log, defaults to
+'silly'.
+* __silent:__ Boolean flag indicating whether to suppress output, defaults to
+false.
+
+*Notice:* __storage__ is required. You should specify it directly by passing stackify-logger module instance.
+
+*Logging unhandled exceptions:* `handleExceptions` property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
+
+*Exit on error:* this option must be set to false, if you want to send exception message properly. If you want your app to close after getting an uncaught exception and sending logs to Stackify set `exitOnError : true` option in stackify.start call.
 
 ## License
 
