@@ -18,34 +18,43 @@ $ npm install winston-stackify
 ## Usage
 
 ``` js
-  var winston = require('winston');
-  var stackify = require('stackify-logger');
-  stackify.start({apiKey: '***', env: 'dev'});
-  //
-  // Requiring 'winston-stackify' will expose 
-  // 'winston.transports.Stackify'
-  //
+    var winston = require('winston');
+    var stackify = require('stackify-logger');
+    stackify.start({apiKey: '***', env: 'dev'});
 
-  require('winston-stackify').Stackify;
-  
-  winston.add(winston.transports.Stackify, {storage : stackify});
+    //
+    // Requiring 'winston-stackify' will expose 
+    // 'winston.transports.Stackify'
+    //
+
+    require('winston-stackify').Stackify;
+
+    // if you're using default logger
+    winston.add(winston.transports.Stackify, {storage : stackify});
+
+
+    // if you're instantiating your own Logger
+    var logger = new (winston.Logger)({
+      transports: [
+          new (winston.transports.Console)(),
+          new (winston.transports.Stackify)(options)
+      ]
+  });
 ```
 In order to use this transport Stackify Logger package must be installed
 
-For more details go to [Stackify-Logger](https://github.com/stackify/stackify-log-nodejs)
+For more details go to [Stackify Logger](https://github.com/stackify/stackify-log-nodejs)
 
 Stackify transport takes the following options. 'storage' is required:
-* __storage:__ Stackify logging library instance.
+* __storage:__ Stackify logging library instance. You should specify it directly by passing stackify-logger module instance.
 * __level:__ Level of messages that this transport should log, defaults to
 'silly'.
 * __silent:__ Boolean flag indicating whether to suppress output, defaults to
 false.
+*__handleExceptions:__ property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
 
-*Notice:* __storage__ is required. You should specify it directly by passing stackify-logger module instance.
-
-*Logging unhandled exceptions:* `handleExceptions` property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
-
-*Exit on error:* this option must be set to false, if you want to send exception message properly. If you want your app to close after getting an uncaught exception and sending logs to Stackify set `exitOnError : true` option in stackify.start call.
+Winston general options:
+*__exitOnError:__ this option must be set to false, if you want to send exception message properly. If you want your app to close after getting an uncaught exception and send logs to Stackify set `exitOnError : true` option in stackify.start call.
 
 ## License
 
