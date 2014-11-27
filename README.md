@@ -12,6 +12,7 @@ http://www.stackify.com/sign-up/
 
 ## Installation
 ```bash
+$ npm install winston
 $ npm install winston-stackify
 ```
 
@@ -51,10 +52,11 @@ Stackify transport takes the following options. 'storage' is required:
 'silly'.
 * __silent:__ Boolean flag indicating whether to suppress output, defaults to
 false.
-*__handleExceptions:__ property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
+* __handleExceptions:__ property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
 
 Winston general options:
-*__exitOnError:__ this option must be set to false, if you want to send exception message properly. If you want your app to close after getting an uncaught exception and send logs to Stackify set `exitOnError : true` option in stackify.start call.
+
+* __exitOnError:__ this option must be set to false, if you want to send exception message properly. If you want your app to close after getting an uncaught exception and send logs to Stackify set `exitOnError : true` option in `stackify.start` call.
 
 ## License
 
