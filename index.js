@@ -49,7 +49,7 @@ Stackify.prototype.log = function (level, msg, meta, callback) {
         return callback(null, true);
     }
 
-    this.push(level, msg, meta);
+    this.push(level, msg, [meta]);
 
     self.emit('logged');
     callback(null, true);
