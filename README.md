@@ -42,16 +42,14 @@ $ npm install winston-stackify
       ]
   });
 ```
-In order to use this transport Stackify Logger package must be installed
+In order to use this transport `stackify-logger` package must be installed
 
-For more details go to [Stackify Logger](https://github.com/stackify/stackify-log-nodejs)
+For more details go to [Stackify-Logger](https://github.com/stackify/stackify-log-nodejs)
 
 Stackify transport takes the following options. 'storage' is required:
 * __storage:__ Stackify logging library instance. You should specify it directly by passing stackify-logger module instance.
-* __level:__ Level of messages that this transport should log, defaults to
-'silly'.
-* __silent:__ Boolean flag indicating whether to suppress output, defaults to
-false.
+* __level:__ Level of messages that this transport should log, defaults to 'silly'.
+* __silent:__ Boolean flag indicating whether to suppress output, defaults to false.
 * __handleExceptions:__ property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
 
 ## License
