@@ -14,7 +14,7 @@
         "url": "https://github.com/stackify/stackify-log-winston.git"
     },
     "homepage": "https://github.com/stackify/stackify-log-winston",
-    "devDependencies": {
-      "winston": "0.8.x"
+    "dependencies": {
+        "winston": "~0.8.x"
     }
 }

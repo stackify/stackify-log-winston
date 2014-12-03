@@ -15,7 +15,7 @@ require('./test2');
 logger.log('verbose', 'wert');
 logger.info('info');
 logger.error('debug');
-logger.log('tretretre', 'sdf');
+logger.log('debug', 'sdf');
 logger.log('verbose', 'were43rt');
 logger.log('info', 'interpolated %s', 'string');
 logger.log('info', 'interpolated %d', 445);
