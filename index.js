@@ -6,7 +6,7 @@ var events   = require('events'),
 // Constructor function for the Stackify transport object responsible
 // for persisting log messages and metadata to a memory array of messages and sending them to Stackify API.
 //
-module.exports = Stackify = winston.transports.Stackify = function (options) {
+var Stackify = exports.Stackify = function (options) {
 
     if (!options.storage) {
         throw new TypeError('You have to pass Stackify logger instance');
@@ -20,10 +20,15 @@ module.exports = Stackify = winston.transports.Stackify = function (options) {
 };
 
 //
-// Inherit from `winston.Transport`.
+// Inherit from `winston.Transport`
 //
 util.inherits(Stackify, winston.Transport);
 
+//
+// Define a getter so that `winston.transports.Stackify`
+// is available and thus backwards compatible
+//
+winston.transports.Stackify = Stackify;
 //
 // Expose the name of this Transport on the prototype
 //
@@ -34,7 +39,7 @@ Stackify.prototype.name = 'stackify';
 // #### @level {string} Level at which to log the message.
 // #### @msg {string} Message to log
 // #### @meta {Object} **Optional** Additional metadata to attach
-// #### @callback {function} Continuation to respond to when complete.
+// #### @callback {function} Callback function.
 // Core logging method exposed to Winston. Metadata is optional.
 //
 Stackify.prototype.log = function (level, msg, meta, callback) {
@@ -44,7 +49,7 @@ Stackify.prototype.log = function (level, msg, meta, callback) {
         return callback(null, true);
     }
 
-    this.push(level, msg, meta);
+    this.push(level, msg, [meta]);
 
     self.emit('logged');
     callback(null, true);
