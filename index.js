@@ -17,6 +17,7 @@ var Stackify = exports.Stackify = function (options) {
     this.level = options.level || 'silly';
     this.push = options.storage.push;
     this.silent = options.silent || false;
+    options.storage.setLoggerName();
 };
 
 //
