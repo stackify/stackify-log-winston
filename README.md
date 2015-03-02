@@ -18,23 +18,29 @@ $ npm install winston-stackify
 
 ## Usage
 
+Using the default logger:
+
 ``` js
 var winston = require('winston');
 var stackify = require('stackify-logger');
-stackify.start({apiKey: '***', env: 'dev'});
 
-//
-// Requiring 'winston-stackify' will expose 
-// 'winston.transports.Stackify'
-//
+stackify.start({apiKey: '***', env: 'dev'});
 
 require('winston-stackify').Stackify;
 
-// if you're using default logger
 winston.add(winston.transports.Stackify, {storage : stackify});
+```
 
+Instantiating your own logger:
 
-// if you're instantiating your own Logger
+``` js
+var winston = require('winston');
+var stackify = require('stackify-logger');
+
+stackify.start({apiKey: '***', env: 'dev'});
+
+require('winston-stackify').Stackify;
+
 var logger = new (winston.Logger)({
     transports: [
         new (winston.transports.Console)(),
@@ -42,6 +48,7 @@ var logger = new (winston.Logger)({
     ]
 });
 ```
+
 In order to use this transport `stackify-logger` package must be installed
 
 For more details go to [Stackify-Logger](https://github.com/stackify/stackify-log-nodejs)
