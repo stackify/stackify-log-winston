@@ -44,13 +44,14 @@ Stackify.prototype.name = 'stackify';
 // Core logging method exposed to Winston. Metadata is optional.
 //
 Stackify.prototype.log = function (level, msg, meta, callback) {
-    var self = this;
+    var self = this,
+        err = new Error();
 
     if (this.silent) {
         return callback(null, true);
     }
 
-    this.push(level, msg, [meta]);
+    this.push(level, msg, [meta], null, err);
 
     self.emit('logged');
     callback(null, true);
