@@ -50,10 +50,6 @@ var logger = new (winston.Logger)({
 });
 ```
 
-In order to use this transport `stackify-logger` package must be installed
-
-For more details go to [Stackify-Logger](https://github.com/stackify/stackify-log-nodejs)
-
 Stackify transport takes the following options. 'storage' is required:
 * __storage:__ Stackify logging library instance. You should specify it directly by passing stackify-logger module instance.
 * __level:__ Level of messages that this transport should log, defaults to 'silly'.
