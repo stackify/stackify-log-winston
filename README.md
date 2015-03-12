@@ -13,6 +13,7 @@ http://www.stackify.com/sign-up/
 ## Installation
 ```bash
 $ npm install winston
+$ npm install stackify-logger
 $ npm install winston-stackify
 ```
 
