@@ -1,6 +1,6 @@
 {
     "name": "winston-stackify",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Stackify logs and errors for Winston",
     "main": "index.js",
     "scripts": {
@@ -11,7 +11,7 @@
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/stackify/stackify-log-winston.git"
+        "url": "http://github.com/stackify/stackify-log-winston.git"
     },
     "homepage": "https://github.com/stackify/stackify-log-winston",
     "devDependencies": {

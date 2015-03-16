@@ -14,7 +14,6 @@ var Stackify = exports.Stackify = function (options) {
 
     winston.Transport.call(this, options);
     options = options || {};
-    this.level = options.level || 'silly';
     this.push = options.storage.push;
     this.silent = options.silent || false;
     options.storage.setLoggerName('Winston');
