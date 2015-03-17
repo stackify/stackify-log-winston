@@ -69,7 +69,7 @@ If logging isn't working, enable internal debug logging for Stackify by setting 
 stackify.start({apiKey: '***', env: 'dev', debug: true});
 ```
 
-You will see stackify-debug.log in your application's directory.
+You will see `stackify-debug.log` in your application's directory.
 
 ## License
 
