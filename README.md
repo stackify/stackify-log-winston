@@ -55,6 +55,16 @@ Stackify transport takes the following options. 'storage' is required:
 * __silent:__ Boolean flag indicating whether to suppress output, defaults to false.
 * __handleExceptions:__ Property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
 
+## Troubleshooting
+
+If logging isn't working, enable internal debug logging for Stackify by setting the debug flag in the Stackify options.
+
+```js
+stackify.start({apiKey: '***', env: 'dev', debug: true});
+```
+
+You will see stackify-debug.log in your application's directory.
+
 ## License
 
 Copyright 2014 Stackify, LLC.
