@@ -49,8 +49,14 @@ var logger = new (winston.Logger)({
 });
 ```
 
-Stackify transport takes the following options. 'storage' is required:
-* __storage:__ Stackify logging library instance. You should specify it directly by passing stackify-logger module instance.
+The following options could be passed to the start method:
+* __apiKey (Required):__ Stackify API key
+* __env:__ Environment name. If a Stackify agent is installed, this does not need to be set. If a Stackify agent is not installed, this should be set to the environment name.
+* __proxy:__ HTTP proxy
+* __debug:__ Enables internal debug logging for troubleshooting. Defaults to false.
+
+The Stackify Winston transport takes the following options:
+* __storage (Required):__ Stackify logging library instance. You should specify it directly by passing stackify-logger module instance.
 * __level:__ Level of messages that this transport should log.
 * __silent:__ Boolean flag indicating whether to suppress output, defaults to false.
 * __handleExceptions:__ Property set to false by default for this transport because Stackify Logger Library handles exceptions itself already. If you're not using default logger and instantiating your own, you don't need to set this option for Stackify transport.
