@@ -1,4 +1,4 @@
-##Stackify Log API for Winston
+# Stackify Log API for Winston
 
 [![npm version](https://badge.fury.io/js/winston-stackify.svg)](http://badge.fury.io/js/winston-stackify)
 
