@@ -1,12 +1,17 @@
 {
     "name": "winston-stackify",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Stackify logs and errors for Winston",
     "main": "index.js",
     "scripts": {
         "test": "not specified"
     },
-    "keywords": ["winston", "stackify", "log", "logger"],
+    "keywords": [
+        "winston",
+        "stackify",
+        "log",
+        "logger"
+    ],
     "author": "Stackify",
     "license": "Apache-2.0",
     "repository": {
@@ -15,6 +20,6 @@
     },
     "homepage": "https://github.com/stackify/stackify-log-winston",
     "devDependencies": {
-      "winston": "0.8.x"
+        "winston": "0.8.x"
     }
 }
