@@ -26,7 +26,7 @@ Using the default logger:
 var winston = require('winston');
 var stackify = require('stackify-logger');
 
-stackify.start({apiKey: '***', env: 'dev'});
+stackify.start({apiKey: '***', appName: 'Node Application', env: 'dev'});
 
 require('winston-stackify').Stackify;
 
@@ -39,7 +39,7 @@ Instantiating your own logger:
 var winston = require('winston');
 var stackify = require('stackify-logger');
 
-stackify.start({apiKey: '***', env: 'dev'});
+stackify.start({apiKey: '***', appName: 'Node Application', env: 'dev'});
 
 require('winston-stackify').Stackify;
 
@@ -53,6 +53,7 @@ var logger = new (winston.Logger)({
 
 The following options could be passed to the start method:
 * __apiKey (Required):__ Stackify API key
+* __appName (Required):__ Application name
 * __env:__ Environment name. If a Stackify agent is installed, this does not need to be set. If a Stackify agent is not installed, this should be set to the environment name.
 * __proxy:__ HTTP proxy
 * __debug:__ Enables internal debug logging for troubleshooting. Defaults to false.
@@ -68,7 +69,7 @@ The Stackify Winston transport takes the following options:
 If logging isn't working, enable internal debug logging for Stackify by setting the debug flag in the Stackify options.
 
 ```js
-stackify.start({apiKey: '***', env: 'dev', debug: true});
+stackify.start({apiKey: '***', appName: 'Node Application', env: 'dev', debug: true});
 ```
 
 You will see `stackify-debug.log` in your application's directory.
